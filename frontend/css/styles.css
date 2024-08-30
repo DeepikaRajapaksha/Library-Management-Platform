@@ -1,0 +1,65 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.content-section {
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Form Styles */
+form {
+    margin-top: 10px;
+}
+
+form label {
+    display: inline-block;
+    width: 100px;
+}
+
+form input, form select {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#memberList, #bookList {
+    margin-top: 20px;
+}

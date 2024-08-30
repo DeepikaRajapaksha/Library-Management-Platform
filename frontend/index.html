@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Library Management Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('register')">Member Registration</a></li>
+            <li><a href="#" onclick="showSection('manageMembers')">Manage Members</a></li>
+            <li><a href="#" onclick="showSection('manageBooks')">Manage Books</a></li>
+            <li><a href="#" onclick="showSection('reports')">Reports</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Member Registration Section -->
+        <section id="register" class="content-section">
+            <h2>Member Registration</h2>
+            <form id="registrationForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" required><br>
+
+                <label for="membershipType">Membership Type:</label>
+                <select id="membershipType" name="membershipType">
+                    <option value="Standard">Standard</option>
+                    <option value="Premium">Premium</option>
+                </select><br>
+
+                <button type="button" onclick="registerMember()">Register</button>
+            </form>
+        </section>
+
+        <!-- Manage Members Section -->
+        <section id="manageMembers" class="content-section hidden">
+            <h2>Manage Members</h2>
+            <div id="memberList"></div>
+        </section>
+
+        <!-- Manage Books Section -->
+        <section id="manageBooks" class="content-section hidden">
+            <h2>Manage Books</h2>
+            <form id="bookForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required><br>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required><br>
+
+                <label for="isbn">ISBN:</label>
+                <input type="text" id="isbn" name="isbn" required><br>
+
+                <button type="button" onclick="addBook()">Add Book</button>
+            </form>
+            <div id="bookList"></div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="content-section hidden">
+            <h2>Reports</h2>
+            <!-- Report Content Here -->
+        </section>
+    </div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
