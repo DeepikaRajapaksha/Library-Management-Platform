@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Library Management System</title>
+    <title>Manage Members - E-Library Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,10 +18,23 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Manage Members Section -->
     <div class="container">
-        <h1>Welcome to the E-Library Management System</h1>
-        <p>This system allows you to manage library members, books, and generate reports.</p>
+        <h2>Manage Members</h2>
+        <table id="membersTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Membership Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic rows will be inserted here -->
+            </tbody>
+        </table>
     </div>
+    <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -14,29 +14,23 @@ nav {
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
 }
 
-.content-section {
+.container {
     padding: 20px;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Form Styles */
-form {
-    margin-top: 10px;
 }
 
 form label {
@@ -44,8 +38,23 @@ form label {
     width: 100px;
 }
 
-form input, form select {
+form input, form select, form button {
     margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
 }
 
 button {
@@ -58,8 +67,4 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-#memberList, #bookList {
-    margin-top: 20px;
 }

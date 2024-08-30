@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Library Management System</title>
+    <title>Reports - E-Library Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -18,10 +18,14 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
+    <!-- Reports Section -->
     <div class="container">
-        <h1>Welcome to the E-Library Management System</h1>
-        <p>This system allows you to manage library members, books, and generate reports.</p>
+        <h2>Reports</h2>
+        <button onclick="generateReports()">Generate Reports</button>
+        <div id="reportContent">
+            <!-- Dynamic reports content will be displayed here -->
+        </div>
     </div>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
