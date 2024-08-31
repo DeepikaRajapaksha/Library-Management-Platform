@@ -15,8 +15,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(#f6f6f6b3, #ffffffb3), url('../images/background.jpg');
-   /* background: rgba(0, 0, 0, 0.3); */
+    background-image: linear-gradient(#060606b3, #000000b3), url('../images/background.jpg');
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -25,7 +24,7 @@ body, html {
 }
 
 .animated-text {
-    color: darkgreen; /* Set color to dark green */
+    color: rgb(255, 255, 255); /* Set color to dark green */
 }
 
 .animated-text span {
@@ -58,7 +57,7 @@ h1 {
 h2 {
     font-size: 5em;
     margin-bottom: 10px;
-    color: brown
+    color: rgba(194, 136, 49, 0.958)
 }
 .login-buttons {
     margin-top: 20px;
@@ -68,7 +67,7 @@ h2 {
     display: inline-block;
     margin: 10px;
     padding: 15px 30px;
-    background-color: #007bff;
+    background-color: #4c9ff8;
     color: white;
     text-decoration: none;
     border-radius: 5px;
