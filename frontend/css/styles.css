@@ -1,4 +1,4 @@
-/* styles.css */
+/* General Styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -7,6 +7,7 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* Welcome Page Container */
 .welcome-container {
     position: relative;
     width: 100%;
@@ -23,8 +24,9 @@ body, html {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* Animated Text for "WELCOME" */
 .animated-text {
-    color: rgb(255, 255, 255); /* Set color to dark green */
+    color: darkgreen; /* Set color to dark green */
 }
 
 .animated-text span {
@@ -41,7 +43,7 @@ body, html {
     100% { opacity: 1; }
 }
 
-/* Delay each letter appearance */
+/* Delay for each letter's appearance */
 .animated-text span:nth-child(1) { animation-delay: 0s; }
 .animated-text span:nth-child(2) { animation-delay: 0.3s; }
 .animated-text span:nth-child(3) { animation-delay: 0.6s; }
@@ -50,6 +52,7 @@ body, html {
 .animated-text span:nth-child(6) { animation-delay: 1.5s; }
 .animated-text span:nth-child(7) { animation-delay: 1.8s; }
 
+/* Headings */
 h1 {
     font-size: 3em;
     margin-bottom: 8px;
@@ -57,8 +60,10 @@ h1 {
 h2 {
     font-size: 5em;
     margin-bottom: 10px;
-    color: rgba(194, 136, 49, 0.958)
+    color: rgba(194, 136, 49, 0.958); /* Keep color as brown */
 }
+
+/* Login Buttons */
 .login-buttons {
     margin-top: 20px;
 }
@@ -79,16 +84,18 @@ h2 {
     background-color: #f77541;
 }
 
+/* Login Page Container */
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../images/background.jpg'); /* Use the correct path for your background image */
+    background-image: url('../images/background.jpg'); /* Correct path for background image */
     background-size: cover;
     background-position: center;
 }
 
+/* Login Box */
 .login-box {
     background-color: white;
     padding: 30px;
@@ -96,19 +103,22 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 350px; /* Set a fixed width for the login box */
     text-align: center;
+    opacity: 0.95; /* Slight transparency for a modern look */
 }
 
-
+/* Login Form */
 .login-form {
     display: flex;
     flex-direction: column;
 }
 
+/* Form Group */
 .form-group {
     margin-bottom: 15px;
     text-align: left;
 }
 
+/* Labels */
 label {
     display: block;
     margin-bottom: 5px;
@@ -116,6 +126,7 @@ label {
     font-weight: bold;
 }
 
+/* Input Fields */
 input[type="text"],
 input[type="password"] {
     width: 100%;
@@ -123,5 +134,12 @@ input[type="password"] {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
+}
+
+/* Additional Styles for Accessibility */
+input:focus {
+    border-color: #f77541;
+    outline: none;
+    box-shadow: 0 0 5px rgba(247, 117, 65, 0.5);
 }
 
