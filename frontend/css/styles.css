@@ -67,7 +67,7 @@ h2 {
     display: inline-block;
     margin: 10px;
     padding: 15px 30px;
-    background-color: #4c9ff8;
+    background-color: #46ed43;
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -76,5 +76,52 @@ h2 {
 }
 
 .login-btn:hover {
-    background-color: #0056b3;
+    background-color: #f77541;
 }
+
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-image: url('../images/background.jpg'); /* Use the correct path for your background image */
+    background-size: cover;
+    background-position: center;
+}
+
+.login-box {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 350px; /* Set a fixed width for the login box */
+    text-align: center;
+}
+
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
