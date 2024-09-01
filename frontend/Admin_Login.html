@@ -9,34 +9,43 @@
 </head>
 <body>
     <div class="login-container">
-        <form id="adminLoginForm" class="login-form" method="POST">
-            <h2>Admin Login</h2>
-            <!-- Username Field -->
-            <label for="admin-username">Username</label>
-            <input type="text" id="admin-username" name="username" placeholder="Enter your username" required>
+        <div class="login-box"> <!-- Use the login-box class for white content box -->
+            <form id="adminLoginForm" class="login-form" method="POST">
+                <h2>Admin Login</h2>
 
-            <!-- Password Field -->
-            <label for="admin-password">Password</label>
-            <input type="password" id="admin-password" name="password" placeholder="Enter your password" required>
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" name="username" placeholder="Enter your username" required>
+                </div>
 
-            <!-- Remember Me Option -->
-            <div class="remember-me">
-                <input type="checkbox" id="adminRememberMe" name="rememberMe">
-                <label for="adminRememberMe">Remember Me</label>
-            </div>
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" name="password" placeholder="Enter your password" required>
+                </div>
 
-            <!-- CAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="your-site-key"></div> <!-- Replace 'your-site-key' with actual CAPTCHA key -->
+                <!-- Remember Me Option -->
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="adminRememberMe" name="rememberMe">
+                    <label for="adminRememberMe">Remember Me</label>
+                </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="login-btn">Login</button>
+                <!-- CAPTCHA -->
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="your-site-key"></div> <!-- Replace 'your-site-key' with actual CAPTCHA key -->
+                </div>
 
-            <!-- Forgot Password Link -->
-            <a href="forgot-password-admin.html" class="forgot-password">Forgot Password?</a>
+                <!-- Submit Button -->
+                <button type="submit" class="login-btn">Login</button>
 
-            <!-- Feedback Message -->
-            <div id="admin-feedback" class="feedback-message"></div>
-        </form>
+                <!-- Forgot Password Link -->
+                <a href="forgot-password-admin.html" class="forgot-password">Forgot Password?</a>
+
+                <!-- Feedback Message -->
+                <div id="admin-feedback" class="feedback-message"></div>
+            </form>
+        </div>
     </div>
     <script src="js/login.js"></script> <!-- JavaScript file for handling the form -->
 </body>

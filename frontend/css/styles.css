@@ -26,7 +26,7 @@ body, html {
 
 /* Animated Text for "WELCOME" */
 .animated-text {
-    color: darkgreen; /* Set color to dark green */
+    color: rgb(254, 255, 254); /* Set color to dark green */
 }
 
 .animated-text span {
@@ -60,7 +60,7 @@ h1 {
 h2 {
     font-size: 5em;
     margin-bottom: 10px;
-    color: rgba(194, 136, 49, 0.958); /* Keep color as brown */
+    color: rgba(241, 215, 84, 0.958); 
 }
 
 /* Login Buttons */
@@ -72,16 +72,16 @@ h2 {
     display: inline-block;
     margin: 10px;
     padding: 15px 30px;
-    background-color: #46ed43;
-    color: white;
+    background-color: #3255f4;
+    color: rgb(251, 249, 249);
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 1.2em;
     transition: background-color 0.3s;
 }
 
 .login-btn:hover {
-    background-color: #f77541;
+    background-color: #0923c9;
 }
 
 /* Login Page Container */
@@ -90,22 +90,27 @@ h2 {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('../images/background.jpg'); /* Correct path for background image */
+    background-image: url('../images/background.jpg'); /* Background image path */
     background-size: cover;
     background-position: center;
 }
 
 /* Login Box */
 .login-box {
-    background-color: white;
+    background-color: rgb(225, 221, 221);
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 350px; /* Set a fixed width for the login box */
+    width: 510px; /* Fixed width for the login box */
     text-align: center;
-    opacity: 0.95; /* Slight transparency for a modern look */
+    opacity: 0.90; /* Slight transparency for a modern look */
 }
 
+.login-box h2 {
+    color: #131313; /* Replace #333 with your desired color */
+    font-size: 4em;
+    margin-bottom: 20px;
+}
 /* Login Form */
 .login-form {
     display: flex;
