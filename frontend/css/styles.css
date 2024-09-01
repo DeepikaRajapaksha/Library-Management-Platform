@@ -7,6 +7,12 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: #ffffff;
+}
+
 /* Welcome Page Container */
 .welcome-container {
     position: relative;
@@ -75,7 +81,7 @@ h2 {
     background-color: #3255f4;
     color: rgb(251, 249, 249);
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1.2em;
     transition: background-color 0.3s;
 }
@@ -148,3 +154,46 @@ input:focus {
     box-shadow: 0 0 5px rgba(247, 117, 65, 0.5);
 }
 
+/* Navigation Styles */
+nav {
+    background-color: #3255f4;
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
