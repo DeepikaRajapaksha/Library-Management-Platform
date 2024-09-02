@@ -15,9 +15,7 @@
                 <span>e</span>
                 <span>l</span>
                 <span>l</span>
-                <span>o</span>
-                <span>,</span>
-                <span> </span>
+                <span>o</span>,
                 <span>[Username]</span>
                 <span>!</span>
             </p>
@@ -32,9 +30,54 @@
         </ul>
     </nav>
     <main>
-        <section>
+        <section class="dashboard">
             <h2>Your Dashboard</h2>
-            <p>Welcome to your homepage. Use the navigation menu to manage your account, search books, and more.</p>
+
+            <!-- Dashboard Widgets -->
+            <div class="widgets">
+                <div class="widget">
+                    <h3>Total Books</h3>
+                    <p>300</p>
+                </div>
+                <div class="widget">
+                    <h3>Books Borrowed</h3>
+                    <p>5</p>
+                </div>
+                <div class="widget">
+                    <h3>Books Reserved</h3>
+                    <p>2</p>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <ul>
+                    <li>Borrowed "Introduction to Python" on 01/09/2024</li>
+                    <li>Returned "JavaScript Essentials" on 28/08/2024</li>
+                    <li>Reserved "Data Structures with C" on 26/08/2024</li>
+                </ul>
+            </div>
+
+            <!-- Notifications Section -->
+            <div class="notifications">
+                <h3>Notifications</h3>
+                <p>You have 1 book due for return tomorrow.</p>
+                <p>Your reservation for "Machine Learning Basics" is ready for pickup.</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search for books...">
+                <button>Search</button>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button>Borrow Book</button>
+                <button>Return Book</button>
+                <button>Reserve Book</button>
+            </div>
         </section>
     </main>
     <footer>
@@ -42,4 +85,3 @@
     </footer>
 </body>
 </html>
-
