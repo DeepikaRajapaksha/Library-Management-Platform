@@ -246,3 +246,122 @@ footer {
     text-align: center;
     padding: 10px;
 }
+
+/* Additional Styles */
+
+/* Header Customization */
+header {
+    border-bottom: 4px solid #f77541;
+}
+
+/* Widget Styles */
+.widget {
+    background-color: #e0e0e0;
+    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.manage-section table {
+    border-collapse: collapse;
+}
+
+.manage-section table th, .manage-section table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.manage-section table th {
+    background-color: #3255f4;
+    color: white;
+    font-size: 1.1em;
+}
+
+.manage-section table td {
+    font-size: 0.9em;
+}
+
+/* Hover Effects */
+.manage-section table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Buttons */
+.quick-actions button {
+    background-color: #3255f4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.quick-actions button:hover {
+    background-color: #213fad;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        margin-left: 0;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    .widgets {
+        flex-direction: column;
+    }
+
+    .widget {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}
+
+/* User Profile Summary */
+.profile-summary {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Upcoming Due Dates */
+.due-dates {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Recommended Books */
+.recommended-books {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.recommended-books a {
+    color: #3255f4;
+    text-decoration: none;
+}
+
+.recommended-books a:hover {
+    text-decoration: underline;
+}
