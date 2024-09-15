@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Books - Library Management Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="welcome-container">
+            <h1>Search Books</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="User_Home.html">Dashboard</a></li>
+            <li><a href="book_details.html">Book Deatils</a></li>
+            <li><a href="search_books.html">Search Books</a></li>
+            <li><a href="my_profile.html">My Profile</a></li>
+            <li><a href="logout.html">Logout</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="search">
+            <h2>Find Your Book</h2>
+            <form id="searchForm">
+                <input type="text" id="searchQuery" name="searchQuery" placeholder="Enter book title or author">
+                <button type="submit">Search</button>
+            </form>
+            <div class="search-results">
+                <h3>Search Results</h3>
+                <ul id="resultsList">
+                    <!-- Search results will be dynamically inserted here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
