@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Library Management Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="auth-container"> <!-- Consistent with login page UI -->
+        <div class="auth-box"> <!-- Consistent box class for UI consistency -->
+            <form id="registerForm" class="auth-form" method="POST">
+                <h2>Create Account</h2>
+
+                <!-- Full Name Field -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                </div>
+
+                <!-- Role Selection -->
+                <div class="form-group">
+                    <label for="role">Register as:</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Select your role</option>
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="auth-buttons">
+                    <button type="submit" class="auth-btn">Create Account</button>
+                </div>
+
+                <!-- Login Link -->
+                <a href="Admin_Login.html" class="auth-link">Already have an account? Login here</a>
+
+                <!-- Feedback Message -->
+                <div id="feedback" class="feedback-message"></div>
+            </form>
+        </div>
+    </div>
+    <script src="js/register.js"></script>
+</body>
+</html>

@@ -617,4 +617,188 @@ footer {
     }
 }
 
+/* Profile Container */
+.profile-container {
+    background-color: #1e293b; /* Dark background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+}
 
+/* Profile Header (Image and Name) */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 10px 0;
+}
+
+.account-settings {
+    font-size: 14px;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+/* Profile Options */
+.profile-options {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.profile-option {
+    display: flex;
+    align-items: center;
+    background-color: #f1f5f9;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profile-option:hover {
+    background-color: #e2e8f0;
+}
+
+.profile-option i {
+    font-size: 24px;
+    margin-right: 20px;
+    color: #475569;
+}
+
+.profile-option h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #1e293b;
+}
+
+.profile-option p {
+    margin: 0;
+    font-size: 12px;
+    color: #475569;
+}
+
+/* Logout Button */
+.logout-container {
+    margin-top: 20px;
+}
+
+.logout-btn {
+    background-color: #f97316;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #ea580c;
+}
+
+/* General Auth Page Styling */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/background.jpg'); /* Background image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.auth-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Submit Button Styling */
+.auth-buttons {
+    margin-top: 20px;
+}
+
+.auth-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.auth-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Login Link */
+.auth-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Feedback Message */
+.feedback-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: red;
+    display: none; /* Initially hidden */
+}

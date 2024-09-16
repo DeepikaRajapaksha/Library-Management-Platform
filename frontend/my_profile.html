@@ -8,47 +8,57 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <nav class = "sidebar">
+    <nav class="sidebar">
         <ul>
             <li><a href="User_Home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li><a href="book_details.html"><i class="fas fa-book"></i> Book Details</a></li>
             <li><a href="search_books.html"><i class="fas fa-search"></i> Search Books</a></li>
-            <li><a href="my_profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+            <li><a href="my_profile.html" class="active"><i class="fas fa-user"></i> My Profile</a></li>
             <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </nav>
-    <main class = "main-content">
-        <header class = "header"></header>
-            <div class="overlay">
-                <p class="animated-text">
-                    <span>My</span>
-                    <span>Profile</span>
-                </p>
-            </div>    
-        </header>
-        <section class="profile-edit">
-            <h2>Edit Profile</h2>
-            <form id="profileForm">
-                <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" value="[Current Username]">
+   
+       
+            <div class="profile-container">
+                <!-- Profile Image and Username -->
+                <div class="profile-header">
+                    <img src="profile-picture.jpg" alt="Profile Image" class="profile-image">
+                    <h2>NLSP</h2>
+                    <a href="#" class="account-settings">Account Settings</a>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" value="[Current Email]">
+        
+                <!-- Profile Options -->
+                <div class="profile-options">
+                    <div class="profile-option">
+                        <i class="fas fa-user"></i> <!-- FontAwesome icon for Profile -->
+                        <div>
+                            <h3>Profile</h3>
+                            <p>Manage Profile</p>
+                        </div>
+                    </div>
+                    <div class="profile-option">
+                        <i class="fas fa-lock"></i> <!-- FontAwesome icon for Password -->
+                        <div>
+                            <h3>Password</h3>
+                            <p>Change Password</p>
+                        </div>
+                    </div>
+                    <div class="profile-option">
+                        <i class="fas fa-cog"></i> <!-- FontAwesome icon for Account -->
+                        <div>
+                            <h3>Account</h3>
+                            <p>Manage your account</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="membershipType">Membership Type:</label>
-                    <select id="membershipType" name="membershipType">
-                        <option value="basic" selected>[Current Membership Type]</option>
-                        <option value="premium">Premium</option>
-                        <option value="vip">VIP</option>
-                    </select>
+        
+                <!-- Logout Button -->
+                <div class="logout-container">
+                    <button class="logout-btn">Log Out</button>
                 </div>
-                <button type="submit">Save Changes</button>
-            </form>
-        </section>
-    </main>
+            </div>
+       
+  
     <footer>
         <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
     </footer>
