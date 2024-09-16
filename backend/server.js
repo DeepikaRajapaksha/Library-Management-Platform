@@ -1,54 +1,76 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
+const bcrypt = require('bcrypt'); // For password hashing
+const User = require('./models/userModel'); // Import the User model
 
-const app = express(); // Creates an express app
-const port = 3000; // Server will run on localhost:3000
+const app = express();
+const port = 3000;
 
-// Use body-parser to read form data
+// Middleware to parse form data from the frontend
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// Serve frontend (HTML, CSS, JS files) from the "public" folder
-app.use(express.static('public'));
+// Serve static files (HTML, CSS, JS) from the "frontend" folder
+app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Connect to MongoDB (this assumes MongoDB is installed on your computer)
-mongoose.connect('mongodb://localhost:27017/libraryDB', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB"))
-    .catch((err) => console.log(err));
+// MongoDB connection
+mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+   .then(() => console.log("Connected to MongoDB"))
+   .catch((err) => console.error("MongoDB connection error: ", err));
 
-// Define a user schema (how user data will be structured)
-const userSchema = new mongoose.Schema({
-    fullName: String,
-    username: String,
-    password: String,
-    email: String,
-    role: String
-});
-
-// Create a model (User) based on the schema
-const User = mongoose.model('User', userSchema);
-
-// Handle the form submission
-app.post('/register', (req, res) => {
+// POST route to handle user registration
+app.post('/register', async (req, res) => {
     const { fullName, username, password, email, role } = req.body;
 
-    const newUser = new User({
-        fullName,
-        username,
-        password,
-        email,
-        role
-    });
+    try {
+        // Hash the password before saving
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Save the new user to the database
-    newUser.save((err) => {
-        if (err) {
-            res.status(500).send('Error saving user to the database');
-        } else {
-            res.send('User registered successfully!');
+        // Create a new user object with the form data
+        const newUser = new User({
+            fullName,
+            username,
+            password: hashedPassword,
+            email,
+            role
+        });
+
+        // Save the user data to MongoDB
+        await newUser.save();
+        res.send('User registered successfully!');
+    } catch (err) {
+        console.error('Error saving user to the database:', err);
+        res.status(500).send('Error saving user to the database');
+    }
+});
+
+// POST route to handle user login
+app.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        // Find user by username
+        const user = await User.findOne({ username });
+        if (!user) {
+            return res.status(401).send('Invalid username or password');
         }
-    });
+
+        // Check if password matches
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(401).send('Invalid username or password');
+        }
+
+        res.send('Login successful');
+    } catch (err) {
+        console.error('Error during login:', err);
+        res.status(500).send('Error occurred during login');
+    }
 });
 
 // Start the server
