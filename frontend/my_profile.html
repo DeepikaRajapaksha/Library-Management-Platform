@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile - Library Management Platform</title>
+    <title>User Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="welcome-container">
-            <h1>My Profile</h1>
-        </div>
-    </header>
-    <nav>
+    <nav class = "sidebar">
         <ul>
-            <li><a href="User_Home.html">Dashboard</a></li>
-            <li><a href="book_details.html">Book Deatils</a></li>
-            <li><a href="search_books.html">Search Books</a></li>
-            <li><a href="my_profile.html">My Profile</a></li>
-            <li><a href="logout.html">Logout</a></li>
+            <li><a href="User_Home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="book_details.html"><i class="fas fa-book"></i> Book Details</a></li>
+            <li><a href="search_books.html"><i class="fas fa-search"></i> Search Books</a></li>
+            <li><a href="my_profile.html"><i class="fas fa-user"></i> My Profile</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </nav>
-    <main>
+    <main class = "main-content">
+        <header class = "header"></header>
+            <div class="overlay">
+                <p class="animated-text">
+                    <span>My</span>
+                    <span>Profile</span>
+                </p>
+            </div>    
+        </header>
         <section class="profile-edit">
             <h2>Edit Profile</h2>
             <form id="profileForm">

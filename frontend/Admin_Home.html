@@ -3,86 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home - Library Management Platform</title>
+    <title>User Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="welcome-container">
-            <h1>Welcome to the Library Management Platform</h1>
-            <p class="animated-text">
-                <span>H</span><span>e</span><span>l</span><span>l</span><span>o</span><span>,</span>
-                <span>Admin</span><span>!</span>
-            </p>
-        </div>
-    </header>
-
-    <!-- Sidebar Navigation -->
-    <nav>
+    <nav class = "sidebar">
         <ul>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Manage Users</a></li>
-            <li><a href="#">Library Settings</a></li>
-            <li><a href="#">Books Management</a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="Admin_Home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Manage Users</a></li>
+            <li><a href="#"><i class="fas fa-cogs"></i> Library Settings</a></li>
+            <li><a href="#"><i class="fas fa-book"></i> Books Management</a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Reports</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+
         </ul>
     </nav>
 
-    <!-- Main Dashboard Content -->
-    <main>
-        <h2>Admin Dashboard</h2>
-        <div class="dashboard">
-            <!-- Widgets Section for Overview Statistics -->
-            <div class="widgets">
-                <div class="widget">
-                    <h3>Total Users</h3>
-                    <p>1,250</p>
+    <!-- Header Section -->
+    <main class = "main-content">
+        <header class = "header">
+            <div class="overlay">
+                <h1>Welcome to the Library Management Platform</h1>
+                <p class="animated-text">
+                    <span>H</span>
+                    <span>e</span>
+                    <span>l</span>
+                    <span>l</span>
+                    <span>o</span>,
+                    <span>Admin</span>
+                    <span>!</span>
+                </p>
+            </div>    
+        </header>
+
+        
+        <section class="dashboard">
+            <div class="dashboard-title">
+                <h2>Your Dashboard</h2>
+            </div>
+
+            <div class="dashboard">
+                <!-- Widgets Section for Overview Statistics -->
+                <div class="widgets">
+                    <div class="widget">
+                        <h3>Total Users</h3>
+                        <p>1,250</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Total Books</h3>
+                        <p>5,680</p>
+                    </div>
+                    <div class="widget">
+                        <h3>Overdue Books</h3>
+                        <p>25</p>
+                    </div>
                 </div>
-                <div class="widget">
-                    <h3>Total Books</h3>
-                    <p>5,680</p>
+    
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Books or Users">
+                    <button>Search</button>
                 </div>
-                <div class="widget">
-                    <h3>Overdue Books</h3>
-                    <p>25</p>
+    
+                <!-- Recent Activity Section -->
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                    <ul>
+                        <li>User John Doe borrowed "The Great Gatsby" - 2 hours ago</li>
+                        <li>User Jane Smith returned "1984" - 1 day ago</li>
+                        <li>User Mark Benson registered - 3 days ago</li>
+                    </ul>
+                </div>
+    
+                <!-- Quick Actions Section -->
+                <div class="quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button>Add New User</button>
+                    <button>Add New Book</button>
+                    <button>Generate Reports</button>
+                </div>
+    
+                <!-- Notifications Section -->
+                <div class="notifications">
+                    <h3>Notifications</h3>
+                    <ul>
+                        <li>System Maintenance scheduled for 10 PM tomorrow</li>
+                        <li>New version update available</li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Search Bar -->
-            <div class="search-bar">
-                <input type="text" placeholder="Search Books or Users">
-                <button>Search</button>
-            </div>
-
-            <!-- Recent Activity Section -->
-            <div class="recent-activity">
-                <h3>Recent Activity</h3>
-                <ul>
-                    <li>User John Doe borrowed "The Great Gatsby" - 2 hours ago</li>
-                    <li>User Jane Smith returned "1984" - 1 day ago</li>
-                    <li>User Mark Benson registered - 3 days ago</li>
-                </ul>
-            </div>
-
-            <!-- Quick Actions Section -->
-            <div class="quick-actions">
-                <h3>Quick Actions</h3>
-                <button>Add New User</button>
-                <button>Add New Book</button>
-                <button>Generate Reports</button>
-            </div>
-
-            <!-- Notifications Section -->
-            <div class="notifications">
-                <h3>Notifications</h3>
-                <ul>
-                    <li>System Maintenance scheduled for 10 PM tomorrow</li>
-                    <li>New version update available</li>
-                </ul>
-            </div>
-        </div>
+        </section>    
     </main>
 
     <!-- Footer Section -->

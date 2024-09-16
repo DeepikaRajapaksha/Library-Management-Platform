@@ -7,14 +7,6 @@ body, html {
     font-family: Arial, sans-serif;
 }
 
-/* Header Styles */
-header {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px;
-    border-bottom: 4px solid #f77541;
-}
-
 /* Welcome Page Container */
 .welcome-container {
     position: relative;
@@ -155,43 +147,6 @@ input:focus {
     border-color: #f77541;
     outline: none;
     box-shadow: 0 0 5px rgba(247, 117, 65, 0.5);
-}
-
-/* Navigation Bar Styles */
-nav {
-    background-color: #3255f4;
-    color: white;
-    width: 200px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 15px 0;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2em;
-    display: block;
-    padding: 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-nav ul li a:hover {
-    background-color: #213fad;
 }
 
 /* Main Content Styles */
@@ -436,13 +391,7 @@ footer {
     border-radius: 4px;
     margin-bottom: 10px;
 }
-/* General Styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-}
+
 
 /* Logout Page Styles */
 .logout-container {
@@ -484,13 +433,7 @@ body, html {
     background-color: #213fad;
 }
 
-/* General Styles */
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-}
+
 
 /* Logout Page Styles */
 .logout-container {
@@ -530,6 +473,148 @@ body, html {
 
 .logout-container .login-btn:hover {
     background-color: #213fad;
+}
+
+
+
+/* Sidebar Styles */
+.sidebar {
+    width: 220px;
+    background-color: #2f4eb1;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1d3b90;
+    border-radius: 5px;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-image: url('../images/library-header.jpg'); /* Add your image path */
+    background-size: cover;  /* Ensures the image covers the entire header */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;  /* Keep this relative so the overlay can position absolutely */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    height: 250px;  /* Set a fixed height for the header */
+    overflow: hidden;  /* Ensure the overlay doesn't overflow */
+}
+
+/* Overlay to darken the background for better text readability */
+.header .overlay {
+    background: rgba(0, 0, 0, 0.5);  /* Semi-transparent black overlay */
+    padding: 60px 20px;
+    border-radius: 10px;
+    position: absolute;  /* Change to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;  /* Ensure the overlay stays above the background image */
+}
+
+/* Ensure text is on top of the overlay */
+.header h1, .header p {
+    position: relative;
+    z-index: 2;  /* Make sure text appears on top of overlay */
+}
+
+
+/* Dashboard Title */
+.dashboard-title {
+    margin-top: 30px;
+}
+
+.dashboard-title h2 {
+    color: #f1a84f;
+    font-size: 2.2em;
+}
+
+/* Profile Summary Section */
+.profile-summary, .due-dates {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-summary h3, .due-dates h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #2f4eb1;
+}
+
+.profile-summary p, .due-dates ul {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.due-dates ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.due-dates ul li {
+    margin: 10px 0;
+}
+
+/* Hover Effect */
+.sidebar ul li a:hover {
+    background-color: #214fbd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
 }
 
 
