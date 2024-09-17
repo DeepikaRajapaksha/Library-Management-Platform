@@ -1,42 +1,46 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Link to your CSS file -->
+    <title>Login - Library Management Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <form id="loginForm" class="auth-form" method="POST" action="/api/users/admin/login">
-        <h2>Admin Login</h2>
+    <div class="auth-container"> <!-- Same container class for consistency -->
+        <div class="auth-box"> <!-- Same box class for UI consistency -->
+            <form id="loginForm" class="auth-form" method="POST" action="/login/admin">
+                <h2>Admin Login</h2>
 
-        <!-- Username Field -->
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <!-- Username Field -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="auth-buttons">
+                    <button type="submit" class="auth-btn">Login</button>
+                </div>
+
+                <!-- Forgot Password Link -->
+                <a href="forget_password.html" class="auth-link">Forgot Password?</a>
+
+                <!-- Register Link -->
+                <a href="register_admin.html" class="auth-link">Don't have an account? Register here</a>
+
+                <!-- Feedback Message -->
+                <div id="feedback" class="feedback-message"></div>
+            </form>
         </div>
-
-        <!-- Password Field -->
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="auth-buttons">
-            <button type="submit" class="auth-btn">Login</button>
-        </div>
-
-        <!-- Forgot Password Link -->
-        <a href="forget_password.html" class="auth-link">Forgot Password?</a>
-
-        <!-- Register Link -->
-        <a href="register_admin.html" class="auth-link">Don't have an account? Register here</a>
-
-        <!-- Feedback Message -->
-        <div id="feedback" class="feedback-message"></div>
-    </form>
-
-    <script src="js/login.js"></script> <!-- Link to your JavaScript file -->
+    </div>
+    <script src="js/login.js"></script> <!-- JavaScript file for handling the form submission -->
 </body>
 </html>

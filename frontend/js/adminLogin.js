@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const password = document.getElementById('password').value;
 
     try {
-        const response = await fetch('/login/user', {
+        const response = await fetch('/login/admin', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
@@ -25,4 +25,3 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         document.getElementById('feedback').style.color = 'red';
     }
 });
-

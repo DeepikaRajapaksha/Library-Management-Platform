@@ -9,7 +9,7 @@
 <body>
     <div class="auth-container"> <!-- Consistent with login page UI -->
         <div class="auth-box"> <!-- Consistent box class for UI consistency -->
-            <form id="registerForm" class="auth-form" method="POST">
+            <form id="registerForm" class="auth-form" method="POST" action="/register/admin">
                 <h2>Create Account</h2>
 
                 <!-- Full Name Field -->
@@ -59,6 +59,35 @@
             </form>
         </div>
     </div>
-    <script src="js/register.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', async function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+        
+            const formData = new FormData(this);
+            const jsonData = Object.fromEntries(formData.entries());
+        
+            try {
+                const response = await fetch('/register/user', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(jsonData)
+                });
+        
+                const result = await response.text();
+        
+                if (response.ok) {
+                    document.getElementById('feedback').textContent = result;
+                    document.getElementById('feedback').style.color = 'green';
+                } else {
+                    document.getElementById('feedback').textContent = result;
+                    document.getElementById('feedback').style.color = 'red';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('feedback').textContent = 'An error occurred during registration';
+                document.getElementById('feedback').style.color = 'red';
+            }
+        });
+        </script>
 </body>
 </html>
