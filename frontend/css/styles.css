@@ -338,7 +338,7 @@ footer {
     text-align: center;
     border-radius: 10px;
     color: white;
-    height: 250px;  /* Set a fixed height for the header */
+    height: 150px;  /* Set a fixed height for the header */
     overflow: hidden;  /* Ensure the overlay doesn't overflow */
 }
 
@@ -381,7 +381,7 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.profile-summary h3, .due-dates h3 {
+.profile-summary h3, .due-dates h3, .book-categories h3 {
     font-size: 1.6em;
     margin-bottom: 15px;
     color: #2f4eb1;
@@ -419,7 +419,32 @@ footer {
     }
 }
 
+/* General Auth Page Styling */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../images/background.jpg'); /* Background image path */
+    background-size: cover;
+    background-position: center;
+}
 
+.auth-box {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-form h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
 /* Form Groups */
 .form-group {
     margin-bottom: 15px;
@@ -514,4 +539,37 @@ footer {
     margin-top: 10px;
     font-size: 16px;
     font-weight: bold;
+}
+
+.header2 {
+    background-image: url('../images/library-header.jpg'); /* Add your image path */
+    background-size: cover;  /* Ensures the image covers the entire header */
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;  /* Keep this relative so the overlay can position absolutely */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    height: 50px;  /* Set a fixed height for the header */
+    overflow: hidden;  /* Ensure the overlay doesn't overflow */
+}
+
+/* Overlay to darken the background for better text readability */
+.header2 .overlay {
+    background: rgba(0, 0, 0, 0.5);  /* Semi-transparent black overlay */
+    padding: 60px 20px;
+    border-radius: 10px;
+    position: absolute;  /* Change to absolute */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;  /* Ensure the overlay stays above the background image */
+}
+
+/* Ensure text is on top of the overlay */
+.header2 h1, .header p {
+    position: relative;
+    z-index: 2;  /* Make sure text appears on top of overlay */
 }

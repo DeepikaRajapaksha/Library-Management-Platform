@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="css/styles.css"> <!-- Link your CSS file here -->
 </head>
 <body>
-    <header>
-        <h1>Logout</h1>
-    </header>
-
-    <main class="logout-container">
-        <h2>You have successfully logged out!</h2>
-        <p>Thank you for using our platform. We hope to see you again soon.</p>
-        <a href="login.html" class="login-btn">Login Again</a> <!-- Change link to your login page -->
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Your Website. All rights reserved.</p>
-    </footer>
+    <div class="auth-container"> <!-- Same container class for consistency -->
+        <div class="auth-box"> <!-- Same box class for UI consistency -->
+            <form id="loginForm" class="auth-form" method="POST" action="/login/user">
+                <h2>Logout</h2>
+                 
+                <h2>You have successfully logged out!</h2>
+                <p>Thank you for using our platform. We hope to see you again soon.</p>
+                <a href="index.html" class="login-btn">Login Again</a> <!-- Change link to your login page -->
+                
+            </form>
+        </div>
+    </div>
 </body>
 </html>
