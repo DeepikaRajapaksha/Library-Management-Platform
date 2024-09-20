@@ -1,100 +1,61 @@
-// Array to store member and book information
-const members = [];
-const books = [];
+let books = [
+    { title: "The Great Novel", author: "John Doe", category: "Novel" },
+    { title: "Science in Action", author: "Jane Smith", category: "Science" },
+    { title: "World History", author: "Alan Walker", category: "Historical" },
+    // Add more books as necessary
+];
 
-// Function to register a new member
-function registerMember() {
-    const name = document.getElementById('name').value;
-    const contact = document.getElementById('contact').value;
-    const membershipType = document.getElementById('membershipType').value;
-
-    if (name && contact) {
-        members.push({ name, contact, membershipType });
-        alert('Member registered successfully!');
-        document.getElementById('registrationForm').reset();
-        displayMembers();
-    } else {
-        alert('Please fill in all fields!');
-    }
-}
-
-// Function to display all members in the manage members table
-function displayMembers() {
-    const membersTable = document.getElementById('membersTable').getElementsByTagName('tbody')[0];
-    membersTable.innerHTML = ''; // Clear table
-
-    members.forEach((member, index) => {
-        const row = membersTable.insertRow();
-        row.insertCell(0).innerText = member.name;
-        row.insertCell(1).innerText = member.contact;
-        row.insertCell(2).innerText = member.membershipType;
-
-        const actionsCell = row.insertCell(3);
-        actionsCell.innerHTML = `<button onclick="deleteMember(${index})">Delete</button>`;
+function displayBooks(filteredBooks) {
+    const booksTable = document.querySelector('#booksTable tbody');
+    booksTable.innerHTML = ''; // Clear previous entries
+    filteredBooks.forEach(book => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.category}</td>
+            <td><button onclick="borrowBook('${book.title}')">Borrow</button></td>
+        `;
+        booksTable.appendChild(row);
     });
 }
 
-// Function to delete a member by index
-function deleteMember(index) {
-    if (confirm('Are you sure you want to delete this member?')) {
-        members.splice(index, 1);
-        displayMembers();
+function searchBooks() {
+    const searchTerm = document.getElementById('searchBook').value.toLowerCase();
+    const filteredBooks = books.filter(book => 
+        book.title.toLowerCase().includes(searchTerm)
+    );
+    displayBooks(filteredBooks);
+}
+
+function filterBooks(category) {
+    const filteredBooks = books.filter(book => book.category === category);
+    displayBooks(filteredBooks);
+}
+
+function borrowBook(bookTitle) {
+    alert(`You have borrowed: ${bookTitle}`);
+}
+
+// Initial display of all books
+displayBooks(books);
+
+// Function to handle image upload
+function uploadImage(event) {
+    const reader = new FileReader();
+    reader.onload = function(){
+        const profileImage = document.getElementById('profileImage');
+        profileImage.src = reader.result;
     }
+    reader.readAsDataURL(event.target.files[0]);
 }
 
-// Function to register a new book
-function registerBook() {
-    const title = document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const isbn = document.getElementById('isbn').value;
-
-    if (title && author && isbn) {
-        books.push({ title, author, isbn });
-        alert('Book registered successfully!');
-        document.getElementById('bookForm').reset();
-        displayBooks();
-    } else {
-        alert('Please fill in all fields!');
-    }
+function editProfile() {
+    // Implement functionality to allow user to edit their full name, username, email, and password
+    alert("Edit profile functionality coming soon!");
 }
 
-// Function to display all books in the manage books table
-function displayBooks() {
-    const booksTable = document.getElementById('booksTable').getElementsByTagName('tbody')[0];
-    booksTable.innerHTML = ''; // Clear table
-
-    books.forEach((book, index) => {
-        const row = booksTable.insertRow();
-        row.insertCell(0).innerText = book.title;
-        row.insertCell(1).innerText = book.author;
-        row.insertCell(2).innerText = book.isbn;
-
-        const actionsCell = row.insertCell(3);
-        actionsCell.innerHTML = `<button onclick="deleteBook(${index})">Delete</button>`;
-    });
+function logout() {
+    // Redirect to the login page or perform logout operation
+    window.location.href = 'User_Login.html';
 }
-
-// Function to delete a book by index
-function deleteBook(index) {
-    if (confirm('Are you sure you want to delete this book?')) {
-        books.splice(index, 1);
-        displayBooks();
-    }
-}
-
-// Event listener for member registration form submission
-document.getElementById('registrationForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting the traditional way
-    registerMember();
-});
-
-// Event listener for book registration form submission
-document.getElementById('bookForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from submitting the traditional way
-    registerBook();
-});
-
-// Example of other possible functions for additional functionalities
-// For example, search functionality for books or members, sorting, etc.
-// You can add your additional functions here...
-

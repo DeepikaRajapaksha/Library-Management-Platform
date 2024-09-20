@@ -277,204 +277,6 @@ footer {
 .recommended-books a:hover {
     text-decoration: underline;
 }
-/* Profile Edit Page */
-.profile-edit {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.profile-edit .form-group {
-    margin-bottom: 15px;
-}
-
-.profile-edit label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.profile-edit input[type="text"],
-.profile-edit input[type="email"],
-.profile-edit select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.profile-edit button {
-    background-color: #3255f4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.profile-edit button:hover {
-    background-color: #213fad;
-}
-
-/* Book Details Page */
-.book-details {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.book-details button {
-    background-color: #3255f4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.book-details button:hover {
-    background-color: #213fad;
-}
-
-/* Search Books Page */
-.search {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-}
-
-.search form {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.search input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.search button {
-    background-color: #3255f4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.search button:hover {
-    background-color: #213fad;
-}
-
-.search-results ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.search-results li {
-    background-color: #f9f9f9;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
-
-
-/* Logout Page Styles */
-.logout-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    border-radius: 10px;
-}
-
-.logout-container h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.logout-container p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.logout-container .login-btn {
-    padding: 10px 20px;
-    background-color: #3255f4;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.logout-container .login-btn:hover {
-    background-color: #213fad;
-}
-
-
-
-/* Logout Page Styles */
-.logout-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    border-radius: 10px;
-}
-
-.logout-container h2 {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.logout-container p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.logout-container .login-btn {
-    padding: 10px 20px;
-    background-color: #3255f4;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.logout-container .login-btn:hover {
-    background-color: #213fad;
-}
-
 
 
 /* Sidebar Styles */
@@ -566,7 +368,7 @@ footer {
 }
 
 .dashboard-title h2 {
-    color: #f1a84f;
+    color: #2f4eb1;
     font-size: 2.2em;
 }
 
@@ -617,129 +419,6 @@ footer {
     }
 }
 
-/* Profile Container */
-.profile-container {
-    background-color: #1e293b; /* Dark background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    color: white;
-}
-
-/* Profile Header (Image and Name) */
-.profile-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.profile-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 10px;
-}
-
-h2 {
-    margin: 10px 0;
-}
-
-.account-settings {
-    font-size: 14px;
-    color: #3b82f6;
-    text-decoration: none;
-}
-
-/* Profile Options */
-.profile-options {
-    width: 100%;
-    max-width: 400px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.profile-option {
-    display: flex;
-    align-items: center;
-    background-color: #f1f5f9;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.profile-option:hover {
-    background-color: #e2e8f0;
-}
-
-.profile-option i {
-    font-size: 24px;
-    margin-right: 20px;
-    color: #475569;
-}
-
-.profile-option h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #1e293b;
-}
-
-.profile-option p {
-    margin: 0;
-    font-size: 12px;
-    color: #475569;
-}
-
-/* Logout Button */
-.logout-container {
-    margin-top: 20px;
-}
-
-.logout-btn {
-    background-color: #f97316;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.logout-btn:hover {
-    background-color: #ea580c;
-}
-
-/* General Auth Page Styling */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('../images/background.jpg'); /* Background image path */
-    background-size: cover;
-    background-position: center;
-}
-
-.auth-box {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-}
-
-.auth-form h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
 
 /* Form Groups */
 .form-group {
@@ -801,4 +480,38 @@ h2 {
     font-size: 14px;
     color: red;
     display: none; /* Initially hidden */
+}
+
+.book-categories {
+    margin-top: 20px;
+}
+
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.category-item {
+    width: 30%;
+    text-align: center;
+}
+
+.category-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover img {
+    transform: scale(1.05);
+}
+
+.category-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }
