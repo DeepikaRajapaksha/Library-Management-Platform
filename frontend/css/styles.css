@@ -190,21 +190,6 @@ main {
     justify-content: space-between;
 }
 
-/* Quick Actions Styles */
-.quick-actions button {
-    margin: 5px;
-    padding: 10px 15px;
-    background-color: #3255f4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.quick-actions button:hover {
-    background-color: #213fad;
-}
 
 /* Footer Styles */
 footer {
@@ -572,4 +557,55 @@ footer {
 .header2 h1, .header p {
     position: relative;
     z-index: 2;  /* Make sure text appears on top of overlay */
+}
+
+.auth-container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+}
+.auth-box2 {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.two-column-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between the columns */
+    justify-content: space-between;
+}
+
+.two-column-form .form-group {
+    flex-basis: calc(50% - 10px); /* Two equal columns */
+}
+
+/* Make sure the labels and inputs take full width of their container */
+.two-column-form label,
+.two-column-form input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #007bff;
 }

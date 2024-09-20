@@ -26,16 +26,37 @@
         </header>
 
         <section class="dashboard"></section>
-            <div class="dashboard-title">
-                <h2><center>Book Details</center></h2>
-            </div>
             <br>
-              <!-- Search Bar -->
-              <div class="search-bar">
+           
+            <div class="auth-container2">
+                <div class="auth-box2">
+                    <div class="content">
+                        <h1>Borrow a Book</h1>
+                        <form class="two-column-form">
+                            
+                            <div class="form-group">
+                                <label for="bookTitle">Book Title:</label>
+                                <input type="text" id="bookTitle" name="bookTitle" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="borrowDate">Borrow Date:</label>
+                                <input type="date" id="borrowDate" name="borrowDate" required>
+                            </div>
+
+                            <button type="submit">Borrow Book</button>
+                            
+                        </form>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <!--Search Bar-->
+            <div class="search-bar">
                 <input type="text" placeholder="Search for books...">
                 <button>Search</button>
             </div>
-            
+
             <!-- Book Categories Section -->
             <div class="book-categories">
                 
@@ -81,43 +102,6 @@
                 </div>
             </div>
 
-
-            <!-- Upcoming Due Dates -->
-            <div class="due-dates">
-                <h3>Upcoming Due Dates</h3>
-                <ul>
-                    <li>"Introduction to Python" - Due on 20/09/2024</li>
-                    <li>"JavaScript Essentials" - Due on 25/09/2024</li>
-                </ul>
-            </div>
-            
-
-            <!-- Dashboard Widgets -->
-            <div class="widgets">
-                <div class="widget">
-                    <h3>Total Books</h3>
-                    <p>300</p>
-                </div>
-                <div class="widget">
-                    <h3>Books Borrowed</h3>
-                    <p>5</p>
-                </div>
-                <div class="widget">
-                    <h3>Books Reserved</h3>
-                    <p>2</p>
-                </div>
-            </div>
-
-            
-
-            <!-- Notifications Section -->
-            <div class="notifications">
-                <h3>Notifications</h3>
-                <p>You have 1 book due for return tomorrow.</p>
-                <p>Your reservation for "Machine Learning Basics" is ready for pickup.</p>
-            </div>
-            
-        </section>
     </main>
   
     <footer>
