@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('./models/userModel');
-const Admin = require('./models/adminModel'); // New Admin model
+const Admin = require('./models/adminModel'); // Admin model
 
 const app = express();
 const port = 3000;
@@ -16,22 +16,13 @@ app.use(bodyParser.json());
 // Serve static files (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// MongoDB connection for users
+// MongoDB connection for users and admins (same database)
 mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => console.log("Connected to libraryDB (for users)"))
+    .then(() => console.log("Connected to libraryDB (for users and admins)"))
     .catch((err) => console.error("libraryDB connection error:", err));
-
-// MongoDB connection for admins
-const adminConnection = mongoose.createConnection('mongodb://127.0.0.1:27017/admindb', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-adminConnection.on('connected', () => {
-    console.log('Connected to admindb (for admins)');
-});
 
 // POST route to handle user registration
 app.post('/register/user', async (req, res) => {
@@ -88,7 +79,7 @@ app.post('/login/user', async (req, res) => {
         if (!isMatch) {
             return res.status(401).send('Invalid username or password');
         }
-        res.send('User login successful');
+        res.json({ message: 'User login successful', redirectTo: '/User_Home.html' });
     } catch (err) {
         console.error('Error during user login:', err);
         res.status(500).send('Error occurred during user login');
@@ -108,7 +99,7 @@ app.post('/login/admin', async (req, res) => {
         if (!isMatch) {
             return res.status(401).send('Invalid username or password');
         }
-        res.send('Admin login successful');
+        res.json({ message: 'Admin login successful', redirectTo: '/Admin_Home.html' });
     } catch (err) {
         console.error('Error during admin login:', err);
         res.status(500).send('Error occurred during admin login');

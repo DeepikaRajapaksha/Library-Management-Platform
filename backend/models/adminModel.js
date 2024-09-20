@@ -1,27 +1,16 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 
-const adminConnection = mongoose.createConnection('mongodb://127.0.0.1:27017/admindb', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
-
+// Define the admin schema
 const adminSchema = new mongoose.Schema({
     fullName: { type: String, required: true },
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    email: { type: String, required: true },
-    role: { type: String, required: true }
+    email: { type: String, required: true, unique: true },
+    role: { type: String, default: 'admin' }
 });
 
-// Hash password before saving
-adminSchema.pre('save', async function (next) {
-    if (this.isModified('password') || this.isNew) {
-        this.password = await bcrypt.hash(this.password, 10);
-    }
-    next();
-});
+// Create the Admin model (stored in the 'admins' collection)
+const Admin = mongoose.model('Admin', adminSchema, 'admins');
 
-const Admin = adminConnection.model('Admin', adminSchema); // Notice the use of adminConnection
 module.exports = Admin;
 

@@ -14,14 +14,14 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         const data = await response.json();
 
         if (response.ok) {
+            // Directly redirect to the admin home page
             window.location.href = data.redirectTo;
         } else {
-            document.getElementById('feedback').textContent = data.message;
-            document.getElementById('feedback').style.color = 'red';
+            alert('Invalid username or password');
         }
     } catch (error) {
         console.error('Error:', error);
-        document.getElementById('feedback').textContent = 'An error occurred during login.';
-        document.getElementById('feedback').style.color = 'red';
+        alert('An error occurred during login');
     }
 });
+
