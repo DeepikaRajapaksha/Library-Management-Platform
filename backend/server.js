@@ -5,6 +5,8 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('./models/userModel');
 const Admin = require('./models/adminModel'); // Admin model
+// Book model
+const Book = require('./models/bookModel');  // You'll create this file for books
 
 const app = express();
 const port = 3000;
@@ -109,4 +111,31 @@ app.post('/login/admin', async (req, res) => {
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+});
+
+// Add this route in your `server.js` file
+// Your search route
+app.get('/search', async (req, res) => {
+    const query = req.query.q;
+
+    try {
+        const books = await Book.find({ title: { $regex: query, $options: 'i' } });
+        if (books.length > 0) {
+            res.json({ success: true, books });
+        } else {
+            res.json({ success: false, message: 'Book not found' });
+        }
+    } catch (error) {
+        console.error('Search error:', error);
+        res.status(500).json({ success: false, message: 'Server error occurred' });
+    }
+});
+
+app.get('/books', async (req, res) => {
+    try {
+        const books = await Book.find();
+        res.json({ success: true, books });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Database error' });
+    }
 });

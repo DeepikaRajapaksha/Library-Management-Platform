@@ -38,11 +38,14 @@
                 <h2>Your Dashboard</h2>
             </div>
 
-            <!-- Search Bar -->
             <div class="search-bar">
-                <input type="text" placeholder="Search for books...">
-                <button>Search</button>
+                <input type="text" id="searchInput" placeholder="Search for books...">
+                <button id="searchButton">Search</button>
             </div>
+            
+            <!-- Search Results Section -->
+            <div id="searchResults"></div>
+
 
             <!-- User Profile Summary -->
             <div class="profile-summary">
@@ -107,6 +110,9 @@
 
         </section>
     </main>
+    <script src="js/searchBook.js"></script>
+
+
     <footer>
         <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
     </footer>

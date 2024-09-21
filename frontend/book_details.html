@@ -25,17 +25,20 @@
             </div>
         </header>
 
-        <section class="dashboard"></section>
+        <section class="dashboard">
             <div class="dashboard-title">
                 <h2><center>Book Details</center></h2>
             </div>
             <br>
               <!-- Search Bar -->
               <div class="search-bar">
-                <input type="text" placeholder="Search for books...">
-                <button>Search</button>
-            </div>
-            
+                <input type="text" id="searchInput" placeholder="Search for books...">
+                <button id="searchButton">Search</button>
+              </div>
+              
+              <!-- Search Results Section -->
+            <div id="searchResults"></div>
+               
             <!-- Book Categories Section -->
             <div class="book-categories">
                 
@@ -120,6 +123,8 @@
         </section>
     </main>
   
+    <script src="js/searchBook.js"></script>
+
     <footer>
         <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
     </footer>
