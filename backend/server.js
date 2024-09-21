@@ -14,9 +14,20 @@ const port = 3000;
 // Middleware to parse form data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.json());
 
 // Serve static files (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, '../frontend')));
+const session = require('express-session');
+
+// Configure the session middleware
+app.use(session({
+    secret: 'yourSecretKey',  // Replace with a strong secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }  // Set `secure: true` in production when using HTTPS
+}));
+
 
 // MongoDB connection for users and admins (same database)
 mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
@@ -81,6 +92,10 @@ app.post('/login/user', async (req, res) => {
         if (!isMatch) {
             return res.status(401).send('Invalid username or password');
         }
+
+        // Save user ID in session after successful login
+        req.session.userId = user._id;
+
         res.json({ message: 'User login successful', redirectTo: '/User_Home.html' });
     } catch (err) {
         console.error('Error during user login:', err);
@@ -101,6 +116,10 @@ app.post('/login/admin', async (req, res) => {
         if (!isMatch) {
             return res.status(401).send('Invalid username or password');
         }
+
+        // Save admin ID in session after successful login
+        req.session.adminId = admin._id;
+
         res.json({ message: 'Admin login successful', redirectTo: '/Admin_Home.html' });
     } catch (err) {
         console.error('Error during admin login:', err);
@@ -138,4 +157,79 @@ app.get('/books', async (req, res) => {
     } catch (error) {
         res.status(500).json({ success: false, message: 'Database error' });
     }
+});
+
+// Borrow book route
+app.post('/borrow', async (req, res) => {
+    const { bookTitle, borrowDate } = req.body;
+
+    try {
+        // Find the book by title
+        const book = await Book.findOne({ title: bookTitle });
+
+        if (!book) {
+            return res.json({ success: false, message: 'Book not found.' });
+        }
+
+        if (book.borrowedStatus) {
+            return res.json({ success: false, message: 'Book is already borrowed.' });
+        }
+
+        // Update the book's borrowed status
+        book.borrowedStatus = true;
+        book.borrowDate = borrowDate; // Add borrowDate if needed in schema
+        await book.save();
+
+        res.json({ success: true, message: 'Book borrowed successfully!' });
+    } catch (error) {
+        console.error('Borrow error:', error);
+        res.status(500).json({ success: false, message: 'Server error occurred.' });
+    }
+});
+
+app.get('/profile', async (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+    }
+
+    try {
+        const user = await User.findById(req.session.userId).select('username email membershipType');
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+
+        res.json({
+            success: true,
+            user: {
+                username: user.username,
+                email: user.email,
+                membershipType: user.membershipType
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+});
+
+
+app.get('/profile', async (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).json({ success: false, message: 'Unauthorized' });
+    }
+
+    const user = await User.findById(req.session.userId);
+    if (!user) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    res.json({
+        success: true,
+        user: {
+            username: user.username,
+            email: user.email,
+            membershipType: user.membershipType
+        }
+    });
 });

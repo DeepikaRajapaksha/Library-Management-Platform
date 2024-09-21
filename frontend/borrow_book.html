@@ -32,7 +32,7 @@
                 <div class="auth-box2">
                     <div class="content">
                         <h1>Borrow a Book</h1>
-                        <form class="two-column-form">
+                        <form id="borrowBookForm" class="two-column-form">
                             
                             <div class="form-group">
                                 <label for="bookTitle">Book Title:</label>
@@ -43,19 +43,21 @@
                                 <label for="borrowDate">Borrow Date:</label>
                                 <input type="date" id="borrowDate" name="borrowDate" required>
                             </div>
-
+                    
                             <button type="submit">Borrow Book</button>
                             
                         </form>
-                        
                     </div>
+                    
                 </div> 
             </div> 
             <!--Search Bar-->
             <div class="search-bar">
-                <input type="text" placeholder="Search for books...">
-                <button>Search</button>
+                <input type="text" id="searchInput" placeholder="Search for books...">
+                <button id="searchButton">Search</button>
             </div>
+            <!-- Search Results Section -->
+            <div id="searchResults"></div>
 
             <!-- Book Categories Section -->
             <div class="book-categories">
@@ -103,6 +105,9 @@
             </div>
 
     </main>
+
+    <script src="js/borrowBook.js"></script>
+    <script src="js/searchBook.js"></script>
   
     <footer>
         <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
