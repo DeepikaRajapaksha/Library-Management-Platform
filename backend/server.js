@@ -37,15 +37,25 @@ mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
     .then(() => console.log("Connected to libraryDB (for users and admins)"))
     .catch((err) => console.error("libraryDB connection error:", err));
 
+
+    // Function to generate a unique membership ID
+function generateMembershipId() {
+    const prefix = 'LIB';  // You can customize this
+    const randomNum = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit number
+    return `${prefix}-${randomNum}`;
+}
+
 // POST route to handle user registration
 app.post('/register/user', async (req, res) => {
     const { fullName, username, password, email } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
+        const membershipId = generateMembershipId();  // Generate membership ID
         const newUser = new User({
             fullName,
             username,
             password: hashedPassword,
+            membershipId,  // Add the generated ID here
             email,
             role: 'user'
         });

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Update the profile section with fetched user data
             document.getElementById('username').textContent = data.user.username;
             document.getElementById('userEmail').textContent = data.user.email;
-            document.getElementById('membershipType').textContent = data.user.membershipType;
+            document.getElementById('membershipId').textContent = data.user.membershipId;
         } else {
             console.log('Error fetching profile data:', data.message);
         }
