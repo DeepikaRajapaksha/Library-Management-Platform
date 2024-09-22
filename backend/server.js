@@ -70,23 +70,30 @@ app.post('/register/user', async (req, res) => {
 // POST route to handle admin registration
 app.post('/register/admin', async (req, res) => {
     const { fullName, username, password, email } = req.body;
+    
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Generate membership ID (e.g., MID-1234)
+        const membershipId = 'AID-' + Math.floor(1000 + Math.random() * 9000);
+
         const newAdmin = new Admin({
             fullName,
             username,
             password: hashedPassword,
             email,
-            role: 'admin'
+            role: 'admin',
+            membershipId  // Add the membership ID here
         });
 
-        await newAdmin.save();
-        res.send('Admin registered successfully!');
+        await newAdmin.save();  // Save the new user to the database
+        res.json({ success: true, message: 'Registration successful!' });
     } catch (err) {
-        console.error('Error saving admin to the database:', err);
-        res.status(500).send('Error saving admin to the database');
+        console.error('Error saving user to the database:', err);
+         res.status(500).json({ success: false, message: 'Registration failed!' });
     }
 });
+
 
 // POST route for user login
 app.post('/login/user', async (req, res) => {
