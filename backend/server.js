@@ -38,35 +38,34 @@ mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
     .catch((err) => console.error("libraryDB connection error:", err));
 
 
-    // Function to generate a unique membership ID
-function generateMembershipId() {
-    const prefix = 'LIB';  // You can customize this
-    const randomNum = Math.floor(100000 + Math.random() * 900000); // Generate a random 6-digit number
-    return `${prefix}-${randomNum}`;
-}
-
-// POST route to handle user registration
+    // Your existing registration route
 app.post('/register/user', async (req, res) => {
     const { fullName, username, password, email } = req.body;
+    
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const membershipId = generateMembershipId();  // Generate membership ID
+        
+        // Generate membership ID (e.g., MID-1234)
+        const membershipId = 'MID-' + Math.floor(1000 + Math.random() * 9000);
+
         const newUser = new User({
             fullName,
             username,
             password: hashedPassword,
-            membershipId,  // Add the generated ID here
             email,
-            role: 'user'
+            role: 'user',
+            membershipId  // Add the membership ID here
         });
 
-        await newUser.save();
-        res.send('User registered successfully!');
+        await newUser.save();  // Save the new user to the database
+        res.json({ success: true, message: 'Registration successful!' });
     } catch (err) {
         console.error('Error saving user to the database:', err);
-        res.status(500).send('Error saving user to the database');
+         res.status(500).json({ success: false, message: 'Registration failed!' });
     }
 });
+
+    
 
 // POST route to handle admin registration
 app.post('/register/admin', async (req, res) => {
@@ -203,43 +202,23 @@ app.get('/profile', async (req, res) => {
     }
 
     try {
-        const user = await User.findById(req.session.userId).select('username email membershipType');
+        const user = await User.findById(req.session.userId);
 
         if (!user) {
             return res.status(404).json({ success: false, message: 'User not found' });
         }
 
+        // Send user details, including membershipId, to the frontend
         res.json({
             success: true,
             user: {
                 username: user.username,
                 email: user.email,
-                membershipType: user.membershipType
+                membershipId: user.membershipId // Ensure membershipId is sent
             }
         });
     } catch (error) {
         console.error('Error fetching profile:', error);
         res.status(500).json({ success: false, message: 'Server error' });
     }
-});
-
-
-app.get('/profile', async (req, res) => {
-    if (!req.session.userId) {
-        return res.status(401).json({ success: false, message: 'Unauthorized' });
-    }
-
-    const user = await User.findById(req.session.userId);
-    if (!user) {
-        return res.status(404).json({ success: false, message: 'User not found' });
-    }
-
-    res.json({
-        success: true,
-        user: {
-            username: user.username,
-            email: user.email,
-            membershipType: user.membershipType
-        }
-    });
 });

@@ -59,35 +59,68 @@
             </form>
         </div>
     </div>
-    <script>
-        document.getElementById('registerForm').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent form from submitting normally
-        
-            const formData = new FormData(this);
-            const jsonData = Object.fromEntries(formData.entries());
-        
-            try {
-                const response = await fetch('/register/user', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(jsonData)
-                });
-        
-                const result = await response.text();
-        
-                if (response.ok) {
-                    document.getElementById('feedback').textContent = result;
-                    document.getElementById('feedback').style.color = 'green';
-                } else {
-                    document.getElementById('feedback').textContent = result;
-                    document.getElementById('feedback').style.color = 'red';
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                document.getElementById('feedback').textContent = 'An error occurred during registration';
-                document.getElementById('feedback').style.color = 'red';
+
+    <!-- Popup Modal -->
+<div id="popup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <p id="feedback-message"></p>
+    </div>
+</div>
+
+   
+<script>
+    document.getElementById('registerForm').addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
+
+        // Create form data
+        const formData = new FormData(this);
+        const jsonData = Object.fromEntries(formData.entries());
+
+        try {
+            // Send registration data to the server
+            const response = await fetch('/register/user', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // Show success message and open popup
+                document.getElementById('feedback-message').textContent = 'Registration successful!';
+                document.getElementById('feedback-message').style.color = 'green';
+                document.getElementById('popup').style.display = 'block'; // Show the popup
+
+                // Redirect to User_Login.html after a short delay
+                setTimeout(function() {
+                    window.location.href = 'User_Login.html'; // Redirect to User_Login.html
+                }, 2000); // 2-second delay for the user to read the message
+            } else {
+                // Show error message and open popup
+                document.getElementById('feedback-message').textContent = result.message || 'Registration failed!';
+                document.getElementById('feedback-message').style.color = 'red';
+                document.getElementById('popup').style.display = 'block'; // Show the popup
+
+                // Redirect to Registration.html after a short delay
+                setTimeout(function() {
+                    window.location.href = 'register.html'; // Redirect to Registration.html
+                }, 2000); // 2-second delay for the user to read the message
             }
-        });
-        </script>
+        } catch (error) {
+            // Show error if something went wrong with the fetch
+            console.error('Error:', error);
+            document.getElementById('feedback-message').textContent = 'An error occurred during registration';
+            document.getElementById('feedback-message').style.color = 'red';
+            document.getElementById('popup').style.display = 'block'; // Show the popup
+
+            // Redirect to Registration.html after a short delay
+            setTimeout(function() {
+                window.location.href = 'registrer.html'; // Redirect to Registration.html
+            }, 2000); // 2-second delay for the user to read the message
+        }
+    });
+</script>
+    
 </body>
 </html>
