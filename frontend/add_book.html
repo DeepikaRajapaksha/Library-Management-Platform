@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <ul>
+            <li><a href="Admin_Home.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+            <li><a href="add_book.html"><i class="fas fa-book-medical"></i> Add New Book</a></li>
+            <li><a href="generate_reports.html"><i class="fas fa-chart-bar"></i> Reports</a></li>
+            <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+    
+
+    <main class = "main-content">
+        <header class="header2">
+            <div class="overlay">
+                <h1>Library Management System</h1>
+            </div>
+        </header>
+
+        <section class="dashboard"></section>
+            <br>
+           
+            <!--Search Bar-->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for books...">
+                <button id="searchButton">Search</button>
+            </div>
+            <!-- Search Results Section -->
+            <div id="searchResults"></div>
+
+            <div class="auth-container2">
+                <div class="auth-box2">
+                    <div class="content">
+                        <h1>Add New Books</h1>
+                            <!-- Add New Book -->
+                            
+                            <form action="/add-book" method="POST">
+                                <label for="title">Book Title:</label>
+                                <input type="text" id="title" name="title">
+                                <label for="author">Author:</label>
+                                <input type="text" id="author" name="author">
+                                <button type="submit">Add Book</button>
+                            </form>
+
+                    </div>
+                    
+                </div> 
+            </div> 
+
+            <div class="auth-container2">
+                <div class="auth-box2">
+                    <div class="content">
+                        <h1>Remove Book</h1>
+                        <form action="/remove-book" method="POST">
+                            <label for="bookId">Book ID:</label>
+                            <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID">
+                            <button type="submit">Remove Book</button>
+                        </form>
+                    
+                    </div>
+                    
+                </div> 
+            </div>
+            
+            <div class="auth-container2">
+                <div class="auth-box2">
+                    <div class="content">
+                        <!-- Edit Book -->
+                        <h1>Edit Book</h1>
+                        <form action="/edit-book" method="POST">
+                            <label for="bookId">Book ID:</label>
+                            <input type="text" id="bookId" name="bookId" placeholder="Enter Book ID">
+                            <label for="newTitle">New Title (optional):</label>
+                            <input type="text" id="newTitle" name="newTitle" placeholder="New Title">
+                            <label for="newAuthor">New Author (optional):</label>
+                            <input type="text" id="newAuthor" name="newAuthor" placeholder="New Author">
+                            <button type="submit">Edit Book</button>
+                        </form>
+                    
+                    </div>
+                    
+                </div> 
+            </div> 
+            
+
+
+    </main>
+
+    <script src="js/borrowBook.js"></script>
+    <script src="js/searchBook.js"></script>
+  
+    <footer>
+        <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+
