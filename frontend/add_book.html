@@ -6,6 +6,7 @@
     <title>User Dashboard</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <nav class="sidebar">
@@ -16,103 +17,151 @@
             <li><a href="logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </nav>
-    
 
-    <main class = "main-content">
+    <main class="main-content">
         <header class="header2">
             <div class="overlay">
                 <h1>Library Management System</h1>
             </div>
         </header>
 
-        <section class="dashboard">
-            
-           
-            <!--Search Bar-->
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search for books...">
-                <button id="searchButton">Search</button>
+        <br>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for books...">
+            <button id="searchButton">Search</button>
+        </div>
+        
+        <br>
+        <br>
+        <!-- Add New Book Section -->
+        <div class="auth-container2">
+            <div class="auth-box2">
+                <div class="content">
+                    <h1>Add New Books</h1>
+                    <form action="/api/books/add-book" method="POST">
+                        <label for="title">Book Title:</label>
+                        <input type="text" id="title" name="title" placeholder="Enter book title" required>
+                    
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name="author" placeholder="Enter author's name" required>
+                    
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" name="category" placeholder="Enter book category" required>
+                    
+                        <button type="submit" class="submit-btn">Add Book</button>
+                    </form>
+                    
+                </div>
             </div>
-            <!-- Search Results Section -->
-            <div id="searchResults"></div>
-           
+        </div>
 
-            <div class="auth-container2">
-                <div class="auth-box2">
-                    <div class="content">
-                        <h1>Add New Books</h1>
-                            <!-- Add New Book -->
-                            
-                            <form action="/add-book" method="POST">
-                                <label for="title">Book Title:</label>
-                                <input type="text" id="title" name="title" placeholder="Enter book title" required>
-            
-                                <label for="author">Author:</label>
-                                <input type="text" id="author" name="author" placeholder="Enter author's name" required>
-            
-                                <label for="category">Category:</label>
-                                <input type="text" id="category" name="category" placeholder="Enter book category" required>
-            
-                                <button type="submit" class="submit-btn">Add Book</button>
-                            </form>
-                            
-                    </div>
-                    
-                </div> 
-            </div> 
+        <!-- Remove Book Section -->
+        <div class="auth-container2">
+            <div class="auth-box2">
+                <div class="content">
+                    <h1>Remove Book</h1>
+                    <form action="/remove-book" method="POST">
+                        <label for="bookIdRemove">Book ID:</label>
+                        <input type="text" id="bookIdRemove" name="bookId" placeholder="Enter Book ID" required>
 
-            <div class="auth-container2">
-                <div class="auth-box2">
-                    <div class="content">
-                        <h1>Remove Book</h1>
-                        <form action="/remove-book" method="POST">
-                            <label for="bookIdRemove">Book ID:</label>
-                            <input type="text" id="bookIdRemove" name="bookId" placeholder="Enter Book ID" required>
-        
-                            <button type="submit" class="submit-btn">Remove Book</button>
-                        </form>
-                    
-                    </div>
-                    
-                </div> 
+                        <button type="submit" class="submit-btn">Remove Book</button>
+                    </form>
+                </div>
             </div>
-            
-            <div class="auth-container2">
-                <div class="auth-box2">
-                    <div class="content">
-                        <!-- Edit Book -->
-                        <h1>Edit Book</h1>
-                        <form action="/edit-book" method="POST">
-                            <label for="bookIdEdit">Book ID:</label>
-                            <input type="text" id="bookIdEdit" name="bookId" placeholder="Enter Book ID" required>
+        </div>
         
-                            <label for="newTitle">New Title (optional):</label>
-                            <input type="text" id="newTitle" name="newTitle" placeholder="Enter new title">
+        <br>
+        <br>
         
-                            <label for="newAuthor">New Author (optional):</label>
-                            <input type="text" id="newAuthor" name="newAuthor" placeholder="Enter new author">
-        
-                            <label for="newCategory">New Category (optional):</label>
-                            <input type="text" id="newCategory" name="newCategory" placeholder="Enter new category">
-        
-                            <button type="submit" class="submit-btn">Edit Book</button>
-                        </form>
-                    
-                    </div>
-                    
-                </div> 
-            </div> 
-        </section> 
+        <!-- Edit Book Section -->
+        <div class="auth-container2">
+            <div class="auth-box2">
+                <div class="content">
+                    <h1>Edit Book</h1>
+                    <form action="/edit-book" method="POST">
+                        <label for="bookIdEdit">Book ID:</label>
+                        <input type="text" id="bookIdEdit" name="bookId" placeholder="Enter Book ID" required>
 
+                        <label for="newTitle">New Title (optional):</label>
+                        <input type="text" id="newTitle" name="newTitle" placeholder="Enter new title">
 
+                        <label for="newAuthor">New Author (optional):</label>
+                        <input type="text" id="newAuthor" name="newAuthor" placeholder="Enter new author">
+
+                        <label for="newCategory">New Category (optional):</label>
+                        <input type="text" id="newCategory" name="newCategory" placeholder="Enter new category">
+
+                        <button type="submit" class="submit-btn">Edit Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
     </main>
 
-    <script src="js/borrowBook.js"></script>
-    <script src="js/searchBook.js"></script>
-  
     <footer>
         <p>&copy; 2024 Library Management Platform. All rights reserved.</p>
     </footer>
+
+    <script src="js/borrowBook.js"></script>
+    <script src="js/searchBook.js"></script>
+    <script>
+        document.getElementById('form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    // Create FormData object from the form
+    const formData = new FormData(event.target);
+
+    // Convert FormData to a plain object
+    const data = Object.fromEntries(formData.entries());
+
+    // Send the POST request with the form data as JSON
+    const response = await fetch('/api/books/add-book', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    // Parse the response
+    const result = await response.json();
+    
+    // Check if the request was successful and show appropriate message
+    if (result.success) {
+        alert('Book added successfully!');
+    } else {
+        alert('Failed to add book');
+    }
+  });
+
+    
+        document.querySelector('form[action="/remove-book"]').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/api/books/remove-book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(formData)),
+            });
+            alert(await response.text());
+        });
+    
+        document.querySelector('form[action="/edit-book"]').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/api/books/edit-book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(formData)),
+            });
+            alert(await response.text());
+        });
+    </script>
+    
 </body>
 </html>
-

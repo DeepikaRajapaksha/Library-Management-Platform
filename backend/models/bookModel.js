@@ -1,14 +1,13 @@
-// bookModel.js
 const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
-    title: String,
-    author: String,
-    category: String,
+    title: { type: String, required: true },
+    author: { type: String, required: true },
+    category: { type: String, required: true },
     borrowedStatus: { type: Boolean, default: false },
-    borrowDate: { type: Date } // Add this field for borrow date
+    borrowDate: { type: Date, default: null },
 });
 
-const Book = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Book', bookSchema);
 
-module.exports = Book;
+

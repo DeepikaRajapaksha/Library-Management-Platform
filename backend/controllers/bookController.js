@@ -1,28 +1,47 @@
-// bookController.js
 const Book = require('../models/bookModel');
 
-// Controller function to handle adding a book
+// Add a book
 const addBook = async (req, res) => {
-    const { title, author, category } = req.body;
-
-    if (!title || !author || !category) {
-        return res.status(400).json({ success: false, message: 'All fields are required' });
-    }
-
     try {
-        const newBook = new Book({
-            title,
-            author,
-            category
-        });
-
+        const { title, author, category } = req.body;
+        if (!title || !author || !category) {
+            return res.status(400).send('All fields are required');
+        }
+        
+        const newBook = new Book({ title, author, category });
         await newBook.save();
-
-        res.status(201).json({ success: true, message: 'Book added successfully', book: newBook });
+        res.status(200).send('Book added successfully');
     } catch (error) {
         console.error('Error adding book:', error);
-        res.status(500).json({ success: false, message: 'Failed to add book' });
+        res.status(500).send('Error adding book');
     }
 };
 
-module.exports = { addBook };
+
+// Remove a book
+const removeBook = async (req, res) => {
+    try {
+        const { bookId } = req.body;
+        await Book.findByIdAndDelete(bookId);
+        res.status(200).send('Book removed successfully');
+    } catch (error) {
+        res.status(500).send('Error removing book');
+    }
+};
+
+// Edit a book
+const editBook = async (req, res) => {
+    try {
+        const { bookId, newTitle, newAuthor, newCategory } = req.body;
+        const updateFields = {};
+        if (newTitle) updateFields.title = newTitle;
+        if (newAuthor) updateFields.author = newAuthor;
+        if (newCategory) updateFields.category = newCategory;
+        await Book.findByIdAndUpdate(bookId, updateFields);
+        res.status(200).send('Book updated successfully');
+    } catch (error) {
+        res.status(500).send('Error editing book');
+    }
+};
+
+module.exports = { addBook, removeBook, editBook };

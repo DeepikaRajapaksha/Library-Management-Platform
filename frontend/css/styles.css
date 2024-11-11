@@ -569,6 +569,7 @@ footer {
 }
 .auth-box2 {
     background-color: white;
+    display: relative;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -578,7 +579,7 @@ footer {
 }
 
 .two-column-form {
-    display: flex;
+    display: relative;
     flex-wrap: wrap;
     gap: 20px; /* Space between the columns */
     justify-content: space-between;

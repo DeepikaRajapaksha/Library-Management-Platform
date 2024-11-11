@@ -7,6 +7,7 @@ const User = require('./models/userModel');
 const Admin = require('./models/adminModel'); // Admin model
 // Book model
 const Book = require('./models/bookModel');  // You'll create this file for books
+const session = require('express-session');
 
 const app = express();
 const port = 3000;
@@ -16,9 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.json());
 
+
 // Serve static files (HTML, CSS, JS)
 app.use(express.static(path.join(__dirname, '../frontend')));
-const session = require('express-session');
 
 // Configure the session middleware
 app.use(session({
@@ -229,5 +230,27 @@ app.get('/profile', async (req, res) => {
         res.status(500).json({ success: false, message: 'Server error' });
     }
 });
+
+// Add new book route
+app.post('/api/books/add-book', async (req, res) => {
+    console.log(req.body);  // Debug log to check if data is received
+    const { title, author, category } = req.body;
+
+    try {
+        const newBook = new Book({
+            title,
+            author,
+            category
+        });
+
+        await newBook.save();
+        res.json({ success: true, message: 'Book added successfully!' });
+    } catch (error) {
+        console.error('Error adding book:', error);
+        res.status(500).json({ success: false, message: 'Failed to add book' });
+    }
+});
+
+
 
 
