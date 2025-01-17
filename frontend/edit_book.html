@@ -37,29 +37,34 @@
         
         <br>
         <br>
-        <!-- Add New Book Section -->
+        <br>
+        <br>
+       
+        
+        <!-- Edit Book Section -->
         <div class="auth-container2">
             <div class="auth-box2">
                 <div class="content">
-                    <h1>Add New Books</h1>
-                    <form action="/api/books/add-book" method="POST">
-                        <label for="title">Book Title:</label>
-                        <input type="text" id="title" name="title" placeholder="Enter book title" required>
-                    
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" name="author" placeholder="Enter author's name" required>
-                    
-                        <label for="category">Category:</label>
-                        <input type="text" id="category" name="category" placeholder="Enter book category" required>
-                    
-                        <button type="submit" class="submit-btn">Add Book</button>
+                    <h1>Edit Book</h1>
+                    <form action="/edit-book" method="POST">
+                        <label for="bookIdEdit">Book ID:</label>
+                        <input type="text" id="bookIdEdit" name="bookId" placeholder="Enter Book ID" required>
+
+                        <label for="newTitle">New Title (optional):</label>
+                        <input type="text" id="newTitle" name="newTitle" placeholder="Enter new title">
+
+                        <label for="newAuthor">New Author (optional):</label>
+                        <input type="text" id="newAuthor" name="newAuthor" placeholder="Enter new author">
+
+                        <label for="newCategory">New Category (optional):</label>
+                        <input type="text" id="newCategory" name="newCategory" placeholder="Enter new category">
+
+                        <button type="submit" class="submit-btn">Edit Book</button>
                     </form>
-                    
                 </div>
             </div>
         </div>
-
-        
+        <br>
         <br>
         <br>
     </main>

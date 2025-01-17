@@ -37,29 +37,26 @@
         
         <br>
         <br>
-        <!-- Add New Book Section -->
+        
+        <!-- Remove Book Section -->
         <div class="auth-container2">
             <div class="auth-box2">
                 <div class="content">
-                    <h1>Add New Books</h1>
-                    <form action="/api/books/add-book" method="POST">
-                        <label for="title">Book Title:</label>
-                        <input type="text" id="title" name="title" placeholder="Enter book title" required>
-                    
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" name="author" placeholder="Enter author's name" required>
-                    
-                        <label for="category">Category:</label>
-                        <input type="text" id="category" name="category" placeholder="Enter book category" required>
-                    
-                        <button type="submit" class="submit-btn">Add Book</button>
+                    <h1>Remove Book</h1>
+                    <form action="/remove-book" method="POST">
+                        <label for="bookIdRemove">Book ID:</label>
+                        <input type="text" id="bookIdRemove" name="bookId" placeholder="Enter Book ID" required>
+
+                        <button type="submit" class="submit-btn">Remove Book</button>
                     </form>
-                    
                 </div>
             </div>
         </div>
-
         
+        <br>
+        <br>
+        
+       
         <br>
         <br>
     </main>
