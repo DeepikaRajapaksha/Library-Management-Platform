@@ -231,26 +231,67 @@ app.get('/profile', async (req, res) => {
     }
 });
 
-// Add new book route
+// Add a Book
 app.post('/api/books/add-book', async (req, res) => {
-    console.log(req.body);  // Debug log to check if data is received
     const { title, author, category } = req.body;
 
     try {
         const newBook = new Book({
             title,
             author,
-            category
+            category,
         });
-
         await newBook.save();
         res.json({ success: true, message: 'Book added successfully!' });
     } catch (error) {
-        console.error('Error adding book:', error);
-        res.status(500).json({ success: false, message: 'Failed to add book' });
+        res.status(500).json({ success: false, message: 'Failed to add book', error: error.message });
     }
 });
 
+// Remove a Book
+app.post('/api/books/remove-book', async (req, res) => {
+    const { title } = req.body;
 
+    try {
+        const result = await Book.findOneAndDelete({ title });
+        if (result) {
+            res.json({ success: true, message: 'Book removed successfully!' });
+        } else {
+            res.status(404).json({ success: false, message: 'Book not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Failed to remove book', error: error.message });
+    }
+});
 
+// Edit a Book
+app.post('/api/books/edit-book', async (req, res) => {
+    const { title, newTitle, newAuthor, newCategory } = req.body;
 
+    try {
+        const updatedBook = await Book.findOneAndUpdate(
+            { title },
+            { title: newTitle, author: newAuthor, category: newCategory },
+            { new: true }
+        );
+
+        if (updatedBook) {
+            res.json({ success: true, message: 'Book updated successfully!', updatedBook });
+        } else {
+            res.status(404).json({ success: false, message: 'Book not found' });
+        }
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Failed to update book', error: error.message });
+    }
+});
+
+// Frontend interaction: Popup messages
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Expose-Headers', 'X-Message');
+    next();
+});
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
