@@ -232,22 +232,29 @@ app.get('/profile', async (req, res) => {
 });
 
 // Add a Book
-app.post('/api/books/add-book', async (req, res) => {
-    const { title, author, category } = req.body;
-
+// Add a Book
+app.post('/add-book', async (req, res) => {
     try {
-        const newBook = new Book({
-            title,
-            author,
-            category,
+        const { title, author, category } = req.body;
+
+        // Generate a unique bookId
+        const bookCount = await Book.countDocuments({});
+        const bookId = `BID_${String(bookCount + 1).padStart(4, '0')}`;
+
+        // Create a new book with bookId
+        const newBook = new Book({ 
+            bookId, 
+            title, 
+            author, 
+            category 
         });
         await newBook.save();
-        res.json({ success: true, message: 'Book added successfully!' });
+
+        res.status(201).json({ message: 'Book added successfully', book: newBook });
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Failed to add book', error: error.message });
+        res.status(500).json({ message: 'Error adding book', error });
     }
 });
-
 // Remove a Book
 app.post('/api/books/remove-book', async (req, res) => {
     const { title } = req.body;
