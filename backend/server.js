@@ -5,7 +5,6 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const User = require('./models/userModel');
 const Admin = require('./models/adminModel'); // Admin model
-// Book model
 const Book = require('./models/bookModel');  // You'll create this file for books
 const session = require('express-session');
 
@@ -32,8 +31,7 @@ app.use(session({
 
 // MongoDB connection for users and admins (same database)
 mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+   
 })
     .then(() => console.log("Connected to libraryDB (for users and admins)"))
     .catch((err) => console.error("libraryDB connection error:", err));
