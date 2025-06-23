@@ -1,16 +1,40 @@
-const mongoose = require('mongoose');
+const db = require('../db'); // This assumes you have a db.js file that exports your Knex instance
 
-// Define the user schema
-const userSchema = new mongoose.Schema({
-    fullName: { type: String, required: true },
-    username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    membershipId: { type: String, unique: true },  // New field for membership ID
-    role: { type: String, default: 'user' }
-});
+// Get all users
+const getAllUsers = async () => {
+  return await db('users').select('*');
+};
 
-// Create the User model (in the 'users' collection)
-const User = mongoose.model('User', userSchema, 'users');
+// Get a single user by ID
+const getUserById = async (id) => {
+  return await db('users').where({ id }).first();
+};
 
-module.exports = User;
+// Get a user by username (for login)
+const getUserByUsername = async (username) => {
+  return await db('users').where({ username }).first();
+};
+
+// Create a new user
+const createUser = async (userData) => {
+  return await db('users').insert(userData);
+};
+
+// Update user by ID
+const updateUser = async (id, userData) => {
+  return await db('users').where({ id }).update(userData);
+};
+
+// Delete user by ID
+const deleteUser = async (id) => {
+  return await db('users').where({ id }).del();
+};
+
+module.exports = {
+  getAllUsers,
+  getUserById,
+  getUserByUsername,
+  createUser,
+  updateUser,
+  deleteUser
+};

@@ -1,15 +1,21 @@
-const mongoose = require('mongoose');
+// backend/db.js
+const mysql = require('mysql2');
+require('dotenv').config();
 
-const connectDB = async () => {
-    try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/libraryDB', {
-           
-        });
-        console.log('Connected to MongoDB');
-    } catch (err) {
-        console.error('MongoDB connection error:', err);
-        process.exit(1);
-    }
-};
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
 
-module.exports = connectDB;
+connection.connect(err => {
+  if (err) {
+    console.error('MySQL connection error:', err);
+  } else {
+    console.log('Connected to MySQL database');
+  }
+});
+
+module.exports = connection;
+
